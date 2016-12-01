@@ -8,8 +8,8 @@ export class HeroSearchService {
   constructor(private http: Http) {}
   search(term: string): Observable<Hero[]> {
     return this.http
-               .get(`app/heroes/?name=${term}`)
-               .map((r: Response) => r.json().data as Hero[]);
+               .get(`http://192.168.30.96:3003/heroes/?q=${term}`)
+               .map((r: Response) => r.json() as Hero[]);
   }
 }
 
